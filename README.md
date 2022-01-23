@@ -17,3 +17,7 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### Notes
+- For large components put css in diff files

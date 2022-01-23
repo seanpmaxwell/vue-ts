@@ -28,7 +28,8 @@
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
 
-    <button @click="hello()">ASSSSS</button>
+    <button @click="increaseCount()">Increase Count</button>
+    <button @click="printMsg()">Call printMsg()</button>
   </div>
 </template>
 
@@ -36,14 +37,13 @@
 import Vue from 'vue';
 import HelloWorld from '@/components/common/HelloWorld.service'
 
-interface IUser {
 
-}
+type TInstance = InstanceType<typeof instance>;
 
-export default Vue.extend({
+const instance = Vue.extend({
   name: 'HelloWorld',
   created () {
-    alert("penis")
+    alert("horse")
   },
   props: {
     msg: String,
@@ -57,44 +57,35 @@ export default Vue.extend({
     prop: 'val',
   },
   methods: {
-
-    hello() {
-      helloHelper(this.msg)
-      this.count++
-      HelloWorld.fart()
-    },
-
-    horse() {
-      this.horse
-      this.msg
-    }
-
-
+    increaseCount,
+    printMsg,
   }
 });
 
-// For long complex methods (more than 5 lines), create helper functions which exist 
-// outside and are called below
-function helloHelper(msg: string): void {
-  // alert(msg)
+export default instance;
+
+
+interface IUser {
+
+}
+
+
+/**
+ * Increase count alt.
+ */
+function increaseCount(this: TInstance): void {
+  this.count++
+}
+
+
+/**
+ * Alert a message.
+ */
+function printMsg(this: TInstance) {
+  HelloWorld.alertMsg(this.msg)
 }
 
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
+<style scoped src="./HelloWorld.css"></style>

@@ -1,5 +1,5 @@
 export default {
-    fart(ass: string) {
-        alert(ass)
+    alertMsg(msg: string) {
+        alert(msg);
     }
 }
