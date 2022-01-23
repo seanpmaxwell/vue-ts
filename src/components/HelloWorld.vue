@@ -62,13 +62,6 @@ const instance = Vue.extend({
   }
 });
 
-export default instance;
-
-
-interface IUser {
-
-}
-
 
 /**
  * Increase count alt.
@@ -84,6 +77,9 @@ function increaseCount(this: TInstance): void {
 function printMsg(this: TInstance) {
   HelloWorld.alertMsg(this.msg)
 }
+
+
+export default instance;
 
 </script>
 
