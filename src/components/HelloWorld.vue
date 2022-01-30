@@ -57,8 +57,6 @@ const instance = Vue.extend({
   }
 });
 
-export default instance;
-
 
 type TInstance = InstanceType<typeof instance>;
 
@@ -96,6 +94,10 @@ function increaseCount(this: TInstance): void {
 function printMsg(this: TInstance) {
     HelloWorld.alertMsg(this.msg);
 }
+
+
+// Export default
+export default instance;
 
 </script>
 
