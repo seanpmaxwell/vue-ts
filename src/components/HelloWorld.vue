@@ -33,41 +33,60 @@
   </div>
 </template>
 
+
+
+
 <script lang="ts">
 import Vue from 'vue';
 import HelloWorld from '@/components/common/HelloWorld.service'
 
 
-type TInstance = InstanceType<typeof instance>;
-
 const instance = Vue.extend({
   name: 'HelloWorld',
-  created () {
-    alert("horse")
-  },
-  props: {
+    props: {
     msg: String,
-  },
-  data() {
-    return {
-      count: 1,
-    }
   },
   model: {
     prop: 'val',
   },
+  created,
+  data,
   methods: {
     increaseCount,
     printMsg,
   }
 });
 
+export default instance;
+
+
+type TInstance = InstanceType<typeof instance>;
+
+
+
+/**
+ * Fire when rendered.
+ */
+function created() {
+    alert("horse");
+}
+
+
+/**
+ * Set data.
+ */
+function data() {
+    return {
+        count: 1,
+    }
+}
+
 
 /**
  * Increase count alt.
  */
 function increaseCount(this: TInstance): void {
-  this.count++
+    this.count++;
 }
 
 
@@ -75,13 +94,12 @@ function increaseCount(this: TInstance): void {
  * Alert a message.
  */
 function printMsg(this: TInstance) {
-  HelloWorld.alertMsg(this.msg)
+    HelloWorld.alertMsg(this.msg);
 }
 
-
-export default instance;
-
 </script>
+
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped src="./HelloWorld.css"></style>
